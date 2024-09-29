@@ -8,6 +8,8 @@ class Contact:
         self.favorite = True
     def remove_favorite_mark(self):
         self.favorite = False
+    def is_favorite(self):
+        return self.favorite
 
 def append_contact(contacts):
     name = input("Digite o nome do novo contato: ")
@@ -47,8 +49,17 @@ def unmark_favorite_contact(contacts):
         contacts[contact_index - 1].remove_favorite_mark()
         print(f"\nContato {contact_index} desmarmarcado como favorito!")
 
-def show_favorite_contacts():
-    pass
+def show_favorite_contacts(contacts):
+    print("\nLista de contatos favoritos:")
+    for index, contact in enumerate(contacts):
+        if contact.is_favorite():
+            msg = "[★]" if contact.favorite else "[ ]"
+            print(f"\nId: {index + 1}")
+            print(f"Nome: {contact.name}")
+            print(f"Telefone: {contact.phone}")
+            print(f"Email: {contact.email}")
+            print(f"Favorito: {msg}")   
+    return
 
 def delete_contact():
     pass
