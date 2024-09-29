@@ -1,7 +1,7 @@
 from contacts import append_contact, show_contacts, mark_favorite_contact, unmark_favorite_contact, show_favorite_contacts, delete_contact
 
 def show_menu():
-    print("\n----------------------------")
+    print("\n------------------------------------")
     print("Agenda de contatos: ")
     print("1. Adicionar contato")
     print("2. Visualizar contatos cadastrados")
@@ -11,6 +11,9 @@ def show_menu():
     print("6. Apagar contato")
     print("7. Sair do programa")
 
+def break_action():
+    input("\nDigite qualquer coisa para voltar ao menu")
+
 contacts = []
 
 while True:
@@ -18,19 +21,28 @@ while True:
     try:
         option = int(input("Digite uma opção: "))
         if option == 1:
-            append_contact()
+            append_contact(contacts)
+            break_action()
         elif option == 2:
-            show_contacts()
+            show_contacts(contacts)
+            break_action()
         elif option == 3:
-            mark_favorite_contact()
+            show_contacts(contacts)
+            mark_favorite_contact(contacts)
+            break_action()
         elif option == 4:
-            unmark_favorite_contact
+            show_contacts(contacts)
+            unmark_favorite_contact(contacts)
+            break_action()
         elif option == 5:
-            show_favorite_contacts()
+            show_favorite_contacts(contacts)
+            break_action()
         elif option == 6:
-            delete_contact()
+            show_contacts(contacts)
+            delete_contact(contacts)
+            break_action()
         elif option == 7:
-            print("\n Até breve!")
+            print("\nAté breve!")
             break
         else:
             print("Número inválido")
