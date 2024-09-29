@@ -39,6 +39,7 @@ def mark_favorite_contact(contacts):
     else:
         contacts[contact_index - 1].mark_as_favorite()
         print(f"\nContato {contact_index} marcado como favorito!")
+        return
 
 def unmark_favorite_contact(contacts):
     contact_index = int(input("\nDigite o id do contato que deseja desmarcar como favorito: "))
@@ -48,6 +49,7 @@ def unmark_favorite_contact(contacts):
     else:
         contacts[contact_index - 1].remove_favorite_mark()
         print(f"\nContato {contact_index} desmarmarcado como favorito!")
+        return
 
 def show_favorite_contacts(contacts):
     print("\nLista de contatos favoritos:")
@@ -61,5 +63,12 @@ def show_favorite_contacts(contacts):
             print(f"Favorito: {msg}")   
     return
 
-def delete_contact():
-    pass
+def delete_contact(contacts):
+    contact_index = int(input("\nDigite o ID do contato que deseja remover: "))
+    if (contact_index < 1 or contact_index > len(contacts)):
+        print("Este id não é válido!")
+        return
+    else:
+        contacts.remove(contacts[contact_index - 1])
+        print(f"\nContato {contact_index} removido com sucesso!")
+        return
