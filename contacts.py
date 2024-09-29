@@ -5,8 +5,15 @@ class Contact:
         self.email = email
         self.favorite = favorite
 
-def append_contact():
-    pass
+def append_contact(contacts):
+    name = input("Digite o nome do novo contato: ")
+    phone = input("Digite o telefone do novo contato: ")
+    email = input("Digite o email do novo contato: ")
+    new_contact = Contact(name, phone, email)
+    contacts.append(new_contact)
+    print("\nContato adicionado com sucesso!")
+    input("Digite qualquer coisa para voltar ao menu")
+    return
 
 def show_contacts():
     pass
